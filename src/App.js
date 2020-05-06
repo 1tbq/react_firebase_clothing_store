@@ -42,7 +42,7 @@ class App extends Component {
             <Route exact path='/' component={HomePage} />
             <Route exact path='/shop' component={Shop} />
             <Route exact path='/shop/hats' component={HatsPage} />
-            <Route exact path='/signin' 
+            <Route exact path='/signin'
               render={() =>
                 this.props.currentUser ? (
                   <Redirect to='/' />
