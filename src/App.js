@@ -10,7 +10,9 @@ import Header from './components/header/Header.component';
 import SignInAndSignUpPage from './components/sing-in-and-signup/sing-in-and-signup.component';
 import HomePage from './components/homepage/homepage.component';
 import { setCurrentUser } from './redux/user/user.actions';
-
+import {selectCurrentUser} from './redux/user/user.selector';
+import { createStructuredSelector } from 'reselect';
+import Checkout from './pages/checkout/checkout.component';
 
 class App extends Component {
   unsubscribeFromAuth = null;
@@ -40,8 +42,8 @@ class App extends Component {
           <Header />
           <Switch>
             <Route exact path='/' component={HomePage} />
-            <Route exact path='/shop' component={Shop} />
-            <Route exact path='/shop/hats' component={HatsPage} />
+            <Route path='/shop' component={Shop} />
+            <Route exact path='/checkout' component={Checkout} />
             <Route exact path='/signin'
               render={() =>
                 this.props.currentUser ? (
@@ -57,8 +59,9 @@ class App extends Component {
     );
   }
 }
-const mapStateToProps = ({ user }) => ({
-  currentUser: user.currentUser
+//createstucturedSelecter is better we can pass multiple valuse form state into it
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser
 });
 const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user))
