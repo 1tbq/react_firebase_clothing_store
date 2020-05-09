@@ -1,7 +1,7 @@
 // import * as React from 'react';
 // import './Collection-item.styles.scss';
 // import CustomButton from '../../components/custom-button/custom-button.component';
-// import { addItem } from '../../redux/cart/cart.actions';
+// import { addItemToCart } from '../../redux/cart/cart.actions';
 // import { connect } from 'react-redux';
 // const CollectionItem = ({ item, addItem }) => {
 //     const { name, price, imageUrl } = item;
@@ -22,7 +22,7 @@
 // };
 
 // const mapDispatchToProps = dispatch => ({
-//     addItem: item => dispatch(addItem(item))
+//     addItem: item => dispatch(addItemToCart(item))
 // });
 // export default connect(null, mapDispatchToProps)(CollectionItem);
 
@@ -30,7 +30,7 @@
 // import * as React from 'react';
 // import './Collection-item.styles.scss';
 // import CustomButton from '../../components/custom-button/custom-button.component';
-// import { addItem } from '../../redux/cart/cart.actions';
+// import { addItemToCart } from '../../redux/cart/cart.actions';
 // import { connect } from 'react-redux';
 // const CollectionItem = ({ item, dispatch }) => {
 //     const { name, price, imageUrl } = item;
@@ -45,7 +45,7 @@
 //                 <span className="name">{name}</span>
 //                 <span className="price">{price}</span>
 //             </div>
-//             <CustomButton onClick={() => dispatch(addItem(item))} inverted>Add to Cart</CustomButton>
+//             <CustomButton onClick={() => dispatch(addItemToCart(item))} inverted>Add to Cart</CustomButton>
 //         </div>
 //     );
 // };
@@ -55,7 +55,7 @@
 import * as React from 'react';
 import './Collection-item.styles.scss';
 import CustomButton from '../../components/custom-button/custom-button.component';
-import { addItem } from '../../redux/cart/cart.actions';
+import { addItemToCart } from '../../redux/cart/cart.actions';
 import { connect } from 'react-redux';
 const CollectionItem = ({ item, addItem }) => {
     const { name, price, imageUrl } = item;
@@ -76,6 +76,6 @@ const CollectionItem = ({ item, addItem }) => {
 };
 
 const mapDispatchToProps = {
-    addItem
+    addItem:addItemToCart
 }
 export default connect(null, mapDispatchToProps)(CollectionItem);
